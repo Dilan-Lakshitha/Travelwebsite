@@ -2,11 +2,11 @@
   "version": 2,
   "builds": [
     { "src": "api/**/*.js", "use": "@vercel/node" },
-    { "src": "dist/Travelwebsite/browser/**", "use": "@vercel/static" }
+    { "src": "angular.json", "use": "@vercel/angular" }
   ],
   "routes": [
-  { "src": "/assets/(.*)", "dest": "/dist/Travelwebsite/browser/assets/$1" },
-  { "src": "/(.*\\.js)", "dest": "/dist/Travelwebsite/browser/$1" },
+    { "src": "/assets/(.*)", "dest": "/dist/Travelwebsite/browser/assets/$1" },
+    { "src": "/(.*\\.js)", "dest": "/dist/Travelwebsite/browser/$1" },
   { "src": "/(.*\\.css)", "dest": "/dist/Travelwebsite/browser/$1" },
   { "src": "/api/(.*)", "dest": "/api/$1.js" },
   { "src": "/(.*)", "dest": "/dist/Travelwebsite/browser/index.html" }
