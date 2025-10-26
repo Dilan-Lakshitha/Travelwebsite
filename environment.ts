@@ -1,4 +1,4 @@
 export const environment = {
-  production: false,
-  backendUrl: '/api' 
+  production: true,
+  backendUrl: 'https://travelwebsite-prod.vercel.app/api'
 };

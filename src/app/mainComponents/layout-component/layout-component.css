@@ -14,30 +14,33 @@ body { top: 0px !important; }
 }
 
 .navbar-color {
-    background-color: #261124; /* Primary color */
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    background-color: #2d585f; /* Primary color */
 }
 
 .navbar-color .nav-link,
 .navbar-color .navbar-brand h1 {
-    color: #ada878; /* White text */
+    color: #FAB92E; /* White text */
 }
 
 .navbar-color .nav-link:hover,
 .navbar-color .nav-link.active {
-    color: #ada878; /* Optional: lighter shade for hover/active */
+    color: #FAB92E; /* Optional: lighter shade for hover/active */
 }
 
 .navbar-color .dropdown-menu {
-    background-color:#261124; /* Match navbar background */
+    background-color:#155A65; /* Match navbar background */
 }
 
 .navbar-color .dropdown-item {
-    color: #261124; /* Text color */
+    color: #155A65; /* Text color */
 }
 
 .navbar-color .dropdown-item:hover {
-    background-color: #ada878; /* Lighter hover effect */
-    color: #261124; /* Text color on hover */
+    background-color: #FAB92E; /* Lighter hover effect */
+    color: #155A65; /* Text color on hover */
 }
 
 .whatsapp-float {

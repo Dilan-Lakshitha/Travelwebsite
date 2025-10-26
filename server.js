@@ -27,8 +27,8 @@ app.post("/send-booking-email", async (req, res) => {
       port: 465,
       secure: true,
       auth: {
-        user: "lakshithadilan6@gmail.com",
-        pass: "ltzonlzjufivtmib",
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
       },
     });
 
@@ -131,8 +131,8 @@ app.post("/send-contact-email", async (req, res) => {
       port: 465,
       secure: true,
       auth: {
-        user: "lakshithadilan6@gmail.com",
-        pass: "ltzonlzjufivtmib",
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
       },
     });
 

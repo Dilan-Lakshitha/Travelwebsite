@@ -202,7 +202,7 @@
 
 /* Full screen option */
 .carousel-item img {
-    height: 100vh;
+    height: 80vh;
     object-fit: cover;
 }
 
