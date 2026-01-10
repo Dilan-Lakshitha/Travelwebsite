@@ -34,6 +34,7 @@ export class BookingComponent {
   email = '';
   phone = '';
   successMessage = '';
+  userCountry: string = 'US';
 
   constructor(
     private router: Router,
@@ -41,7 +42,9 @@ export class BookingComponent {
     private toastr: ToastrService
   ) {}
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    this.userCountry = await this.detectCountry();
+    console.log('User country detected as:', this.userCountry);
     this.generateOrderNumber();
 
     const navState = this.router.getCurrentNavigation()?.extras.state as {
@@ -79,6 +82,7 @@ export class BookingComponent {
     }
 
     const storedPrices = localStorage.getItem('prices');
+    console.log('Stored prices:', storedPrices);
     if (storedPrices) {
       this.prices = JSON.parse(storedPrices);
       this.updateAmounts();
@@ -87,8 +91,18 @@ export class BookingComponent {
     }
   }
 
+  async detectCountry(): Promise<string> {
+    try {
+      const res = await fetch('https://ipapi.co/json/');
+      const data = await res.json();
+      return data.country;
+    } catch {
+      return 'US';
+    }
+  }
+
   loadTourPrices(fileName: string) {
-    this.http.get(`/assets/data/${fileName}.json`).subscribe((data: any) => {
+    this.http.get(`/assets/data/${this.userCountry+fileName}.json`).subscribe((data: any) => {
       this.prices = data.price;
       localStorage.setItem('prices', JSON.stringify(this.prices));
       this.updateAmounts();
