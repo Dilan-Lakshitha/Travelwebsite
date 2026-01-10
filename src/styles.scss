@@ -1,2 +1,16 @@
 @import './styles/style';
 @import './styles/bootstrap/scss/bootstrap';
+
+/* Fix Elfsight Translator Position */
+.elfsight-app-ef87654d-df1d-400e-b01f-05eebae1ea0d {
+  position: fixed !important;
+  bottom: 20px !important;
+  left: 90% !important;
+  transform: translateX(-50%) !important;
+  z-index: 9999 !important;
+}
+
+/* Prevent footer spacing issues */
+.elfsight-app-ef87654d-df1d-400e-b01f-05eebae1ea0d * {
+  margin: 0 !important;
+}
