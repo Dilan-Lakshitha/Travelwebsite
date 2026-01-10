@@ -90,4 +90,10 @@ body { top: 0px !important; }
     opacity: 1;
     transform: translateX(0);
 }
-
+/* Elfsight in top navbar */
+.navbar-color .elfsight-app-ef87654d-df1d-400e-b01f-05eebae1ea0d {
+  position: relative !important;
+  transform: scale(0.85);
+  margin-left: 10px;
+  z-index: 10000;
+}
