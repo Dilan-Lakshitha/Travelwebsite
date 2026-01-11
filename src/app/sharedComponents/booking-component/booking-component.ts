@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../environment';
 import { ToastrService } from 'ngx-toastr';
+import { catchError } from 'rxjs';
 
 @Component({
   selector: 'app-booking-component',
@@ -101,14 +102,24 @@ export class BookingComponent {
     }
   }
 
-  loadTourPrices(fileName: string) {
-    this.http.get(`/assets/data/${this.userCountry+fileName}.json`).subscribe((data: any) => {
-      console.log('Loaded tour prices:', data);
-      this.prices = data.price;
-      localStorage.setItem('prices', JSON.stringify(this.prices));
-      this.updateAmounts();
-    });
-  }
+loadTourPrices(fileName: string) {
+  const countryFile = `/assets/data/${this.userCountry}${fileName}.json`;
+  const defaultFile = `/assets/data/US${fileName}.json`;
+
+  this.http.get(countryFile).pipe(
+    catchError(err => {
+      console.warn(
+        `Price file not found for ${this.userCountry}, loading default prices`
+      );
+      return this.http.get(defaultFile);
+    })
+  ).subscribe((data: any) => {
+    console.log('Loaded tour prices:', data);
+    this.prices = data.price;
+    localStorage.setItem('prices', JSON.stringify(this.prices));
+    this.updateAmounts();
+  });
+}
 
   generateOrderNumber() {
     let lastOrder = localStorage.getItem('lastOrderNumber');
