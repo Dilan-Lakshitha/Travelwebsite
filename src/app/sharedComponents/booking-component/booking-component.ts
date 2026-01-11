@@ -103,6 +103,7 @@ export class BookingComponent {
 
   loadTourPrices(fileName: string) {
     this.http.get(`/assets/data/${this.userCountry+fileName}.json`).subscribe((data: any) => {
+      console.log('Loaded tour prices:', data);
       this.prices = data.price;
       localStorage.setItem('prices', JSON.stringify(this.prices));
       this.updateAmounts();
