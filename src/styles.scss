@@ -1,2 +1,43 @@
 @import './styles/style';
 @import './styles/bootstrap/scss/bootstrap';
+
+/* === GOOGLE TRANSLATE FULL BAR REMOVAL === */
+
+/* Hide top banner iframe */
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* Prevent page shift */
+html, body {
+  top: 0 !important;
+}
+
+/* Hide Google translate tooltip */
+.goog-tooltip,
+.goog-tooltip:hover {
+  display: none !important;
+}
+
+/* Remove yellow highlight */
+.goog-text-highlight {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Hide "Translated by Google" text */
+.goog-logo-link {
+  display: none !important;
+}
+
+/* Hide inline Google UI */
+.goog-te-gadget {
+  display: none !important;
+}
+
+/* Prevent iframe flicker */
+body > .skiptranslate {
+  display: none !important;
+}

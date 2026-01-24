@@ -9,11 +9,30 @@
 
     <!-- Right side: social icons -->
     <div class="d-inline-flex align-items-center">
-          <div class="ml-3">
+        <div class="lang-pill">
+            <button class="lang-flag" [class.active]="activeLang === 'en'" (click)="changeLang('en')" title="English">
+                <img src="https://flagcdn.com/w20/us.png" alt="EN">
+            </button>
 
-    <div class="elfsight-app-ef87654d-df1d-400e-b01f-05eebae1ea0d"
-         data-elfsight-app-lazy></div>
-  </div>
+            <button class="lang-flag" [class.active]="activeLang === 'si'" (click)="changeLang('si')" title="සිංහල">
+                <img src="https://flagcdn.com/w20/lk.png" alt="SI">
+            </button>
+
+            <button class="lang-flag" [class.active]="activeLang === 'it'" (click)="changeLang('it')" title="Italiano">
+                <img src="https://flagcdn.com/w20/it.png" alt="IT">
+            </button>
+
+            <button class="lang-flag" [class.active]="activeLang === 'fr'" (click)="changeLang('fr')" title="Français">
+                <img src="https://flagcdn.com/w20/fr.png" alt="FR">
+            </button>
+
+            <button class="lang-flag" [class.active]="activeLang === 'de'" (click)="changeLang('de')" title="Deutsch">
+                <img src="https://flagcdn.com/w20/de.png" alt="DE">
+            </button>
+        </div>
+
+
+
         <a class="btn nav-link btn-square mr-2" href="https://www.facebook.com/ceylonparadisetour" target="_blank">
             <i class="fab fa-facebook-f"></i>
         </a>
@@ -127,7 +146,7 @@
                     <input type="text" class="form-control border-light" style="padding: 25px;"
                         placeholder="Your Email">
                     <div class="input-group-append">
-                        <button routerLink="/contact"  class="btn btn-primary px-3">Sign Up</button>
+                        <button routerLink="/contact" class="btn btn-primary px-3">Sign Up</button>
                     </div>
                 </div>
             </div>
